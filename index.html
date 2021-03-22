@@ -7,20 +7,20 @@
         <link rel="stylesheet" href="styles.css">
         <script defer type="module" src="./script/script.js"></script>
     </head>
-    <body >
-        <h1>New Drawy Thing</h1>
-        <div id="main">
-            <canvas id="GameScreen" width="640" height="480"></canvas>    
-        </div>
-        <div id="colorSelector">
-            <ul>
-                <label for="colorSwatch">Color: </label>
-                <input type="color" id="colorSwatch" value="#FFFF">
+    <h1>New Drawy Thing</h1>
+    <div id="main">
+        <canvas id="GameScreen"></canvas>    
+    </div>
+    <div id="colorSelector">
+        <ul id="ControlPanel">
+            <label for="colorSwatch">Color: </label>
+            <input type="color" id="colorSwatch" value="#FFFF">
+            <div id="opacityControl">
                 <label for="opacitySlider">Opacity:</label>
                 <input type="range" id="opacitySlider" min="1" max="100" value="100" default="100">
                 <label id="opacityLabel"></label>
-            </ul>
-        </div>
-        <button id="resetScreenButton">Reset Screen</button>
-    </body>   
+            </div>
+        </ul>
+    </div>
+    <button id="resetScreenButton">Reset Screen</button>
 </html>

@@ -7,6 +7,9 @@ const colorSelector = document.getElementById("colorSelector");
 const colorButton = document.getElementById('colorSwatch');
 const opacitySlider = document.getElementById('opacitySlider');
 
+canvas.width = 400;
+canvas.height = 400;
+
 document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
 //console.log(colorButton.value)
@@ -37,12 +40,7 @@ canvas?.addEventListener('mousedown' || 'touchstart', e => {
 canvas?.addEventListener('mousemove' || 'touchmove', e => {
     const xPos = e.clientX - canvas.offsetLeft;
     const yPos = e.clientY - canvas.offsetTop;
-    if(mouseIsDown){
-        drawCircle(xPos,yPos);
-        // context.fillRect(xPos,yPos,5,5) 
-        //console.log("MouseMove Event Listener triggerd" + " X: " +
-        // xPos + " Y: " + yPos)
-    }   
+    if(mouseIsDown) drawCircle(xPos,yPos);
 })
 
 canvas?.addEventListener('mouseup'|| 'touchend', e => {
@@ -50,8 +48,8 @@ canvas?.addEventListener('mouseup'|| 'touchend', e => {
     mouseIsDown = false;
 })
 
-opacitySlider?.addEventListener('click', e => {
-    let value = e?.target?.value/100;
+opacitySlider?.addEventListener('click' || 'change', e => {
+    // let value = e?.target?.value/100;
     document.getElementById('opacityLabel').innerText = opacitySlider.value +"%"
     //console.log(value);  
 })
