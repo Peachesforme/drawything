@@ -13,9 +13,11 @@
             <canvas id="GameScreen" width="640" height="480"></canvas>    
         </div>
         <div id="colorSelector">
-            <legend>Color Selector</legend>
             <ul>
+                <label for="colorSwatch">Color: </label>
                 <input type="color" id="colorSwatch" value="#FFFF">
+                <label for="opacitySlider">Opacity:</label>
+                <input type="range" id="opacitySlider" min="1" max="100" value="100" default="100">
             </ul>
         </div>
         <button id="resetScreenButton">Reset Screen</button>

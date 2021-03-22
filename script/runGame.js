@@ -4,9 +4,11 @@ const context = canvas.getContext("2d");
 const resetButton = document.getElementById("resetScreenButton");
 const colorSelector = document.getElementById("colorSelector");
 const colorButton = document.getElementById('colorSwatch');
+const opacitySlider = document.getElementById('opacitySlider');
 
 
-console.log(colorButton)
+colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
+console.log(colorButton.value)
 let mouseIsDown = false; //Mouse moving is always registering.
 
 
@@ -49,15 +51,32 @@ canvas?.addEventListener('mouseup', e => {
 })
 
 
-// colorSelector?.addEventListener('click', e => {
-//     let color = e?.target?.value;
-//     context.fillStyle = color;  
-// })
+opacitySlider?.addEventListener('click', e => {
+    let value = e?.target?.value/100;
+    console.log(value);  
+})
+
+colorButton?.addEventListener('click', e => {
+    let value = e?.target?.value;
+    console.log(value);  
+})
 
 function drawCircle(xPos, yPos,){
-    context.fillStyle = colorButton.value
+    context.fillStyle = hexToRGB(colorButton.value,opacitySlider.value/100);
     context.beginPath();
     context.arc(xPos,yPos, 5 , 0, 2 * Math.PI)
     context.fill();
     context.closePath();
+}
+console.log(hexToRGB(colorButton.value,opacitySlider.value/100))
+function hexToRGB(hex, alpha) {
+    var r = parseInt(hex.slice(1, 3), 16),
+        g = parseInt(hex.slice(3, 5), 16),
+        b = parseInt(hex.slice(5, 7), 16);
+
+    if (alpha) {
+        return "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+    } else {
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+    }
 }
