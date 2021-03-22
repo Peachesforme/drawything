@@ -37,13 +37,3 @@ body h1 {
     border: 1px solid blue; 
 }
 
-.colorSwatch {
-    height: fit-content;
-    width: fit-content;
-}
-
-#colorSelector button{
-    width: 45px;
-    height: 45px;
-}
-

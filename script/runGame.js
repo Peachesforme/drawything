@@ -3,17 +3,12 @@ const canvas = document.getElementById("GameScreen");
 const context = canvas.getContext("2d");
 const resetButton = document.getElementById("resetScreenButton");
 const colorSelector = document.getElementById("colorSelector");
-const colorButtons = document.getElementsByClassName('colorSwatch');
+const colorButton = document.getElementById('colorSwatch');
 
+
+console.log(colorButton)
 let mouseIsDown = false; //Mouse moving is always registering.
 
-
-
-//Render the buttons with their appropriate color
-const availableColors = Object.values(colorButtons)
-availableColors.forEach(element => {
-    element.style.backgroundColor = element.value
-});
 
 canvas?.addEventListener("click", e => {
     const xPos = e.clientX - canvas.offsetLeft;
@@ -54,12 +49,13 @@ canvas?.addEventListener('mouseup', e => {
 })
 
 
-colorSelector?.addEventListener('click', e => {
-    const color = e?.target?.value;
-    context.fillStyle = color;
-})
+// colorSelector?.addEventListener('click', e => {
+//     let color = e?.target?.value;
+//     context.fillStyle = color;  
+// })
 
 function drawCircle(xPos, yPos,){
+    context.fillStyle = colorButton.value
     context.beginPath();
     context.arc(xPos,yPos, 5 , 0, 2 * Math.PI)
     context.fill();
