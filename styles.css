@@ -1,0 +1,49 @@
+
+#GameScreen{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+
+
+#main {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+body {
+    border: 1px solid black;
+    align-content: center;
+    justify-content: center;
+}
+
+#resetScreenButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    width: 10em;
+}
+
+body h1 {
+    text-align:  center;
+}
+
+#colorSelector {
+    border: 1px solid blue; 
+}
+
+.colorSwatch {
+    height: fit-content;
+    width: fit-content;
+}
+
+#colorSelector button{
+    width: 15px;
+    height: 15px;
+}
+
