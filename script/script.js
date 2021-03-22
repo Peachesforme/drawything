@@ -6,7 +6,7 @@ const colorSelector = document.getElementById("colorSelector");
 const colorButton = document.getElementById('colorSwatch');
 const opacitySlider = document.getElementById('opacitySlider');
 
-
+document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
 console.log(colorButton.value)
 let mouseIsDown = false; //Mouse moving is always registering.
@@ -53,6 +53,7 @@ canvas?.addEventListener('mouseup', e => {
 
 opacitySlider?.addEventListener('click', e => {
     let value = e?.target?.value/100;
+    document.getElementById('opacityLabel').innerText = opacitySlider.value +"%"
     console.log(value);  
 })
 
@@ -68,7 +69,7 @@ function drawCircle(xPos, yPos,){
     context.fill();
     context.closePath();
 }
-console.log(hexToRGB(colorButton.value,opacitySlider.value/100))
+
 function hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
         g = parseInt(hex.slice(3, 5), 16),
