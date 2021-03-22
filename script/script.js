@@ -1,3 +1,4 @@
+
 //Create Elements that can be manipulated
 const canvas = document.getElementById("GameScreen");
 const context = canvas.getContext("2d");
@@ -8,9 +9,8 @@ const opacitySlider = document.getElementById('opacitySlider');
 
 document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
-console.log(colorButton.value)
+// //console.log(colorButton.value)
 let mouseIsDown = false; //Mouse moving is always registering.
-
 
 canvas?.addEventListener("click", e => {
     const xPos = e.clientX - canvas.offsetLeft;
@@ -22,15 +22,15 @@ canvas?.addEventListener("click", e => {
 resetButton?.addEventListener('click', () => {
     const backgroundColorUsed =  getComputedStyle(canvas).backgroundColor;
     const currentColor = context.fillStyle
-    // console.log(currentColor)
+    // //console.log(currentColor)
     context.fillStyle = backgroundColorUsed;
     context.fillRect(0,0, canvas.offsetWidth, canvas.clientHeight)
     context.fillStyle = currentColor;
-    // console.log('Reset Button Clicked');
+    // //console.log('Reset Button Clicked');
 })
 
 canvas?.addEventListener('mousedown', e => {
-    // console.log('MouseDown Event Triggereted')
+    // //console.log('MouseDown Event Triggereted')
     mouseIsDown = true;
 })
 
@@ -40,26 +40,25 @@ canvas?.addEventListener('mousemove', e => {
     if(mouseIsDown){
         drawCircle(xPos,yPos);
         // context.fillRect(xPos,yPos,5,5) 
-        // console.log("MouseMove Event Listener triggerd" + " X: " +
+        // //console.log("MouseMove Event Listener triggerd" + " X: " +
         // xPos + " Y: " + yPos)
     }   
 })
 
 canvas?.addEventListener('mouseup', e => {
-    // console.log("MouseUp Event Listener triggerd")
+    // //console.log("MouseUp Event Listener triggerd")
     mouseIsDown = false;
 })
-
 
 opacitySlider?.addEventListener('click', e => {
     let value = e?.target?.value/100;
     document.getElementById('opacityLabel').innerText = opacitySlider.value +"%"
-    console.log(value);  
+    //console.log(value);  
 })
 
 colorButton?.addEventListener('click', e => {
     let value = e?.target?.value;
-    console.log(value);  
+    //console.log(value);  
 })
 
 function drawCircle(xPos, yPos,){
