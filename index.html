@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New game</title>
+        <link rel="stylesheet" href="styles.css">
+        <script defer type="module" src="./script/runGame.js"></script>
+    </head>
+    <body >
+        <h1>New Game</h1>
+        <div id="main">
+            <canvas id="GameScreen" width="640" height="480"></canvas>    
+        </div>
+        <div id="colorSelector">
+            <legend>Color Selector</legend>
+                <ul>
+                    <button class="colorSwatch" id="blackPaint" value='black'></button>
+                    <button class="colorSwatch" id="whitePaint" value='white'></button>
+                    <button class="colorSwatch" id="bluePaint" value='blue'></button>
+                    <button class="colorSwatch" id="greenPaint" value='green'></button>
+                </ul>
+        </div>
+        <button id="resetScreenButton">Reset Screen</button>
+    </body>   
+</html>
