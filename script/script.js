@@ -9,7 +9,7 @@ const opacitySlider = document.getElementById('opacitySlider');
 
 document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
-// //console.log(colorButton.value)
+//console.log(colorButton.value)
 let mouseIsDown = false; //Mouse moving is always registering.
 
 canvas?.addEventListener("click", e => {
@@ -22,31 +22,31 @@ canvas?.addEventListener("click", e => {
 resetButton?.addEventListener('click', () => {
     const backgroundColorUsed =  getComputedStyle(canvas).backgroundColor;
     const currentColor = context.fillStyle
-    // //console.log(currentColor)
+    //console.log(currentColor)
     context.fillStyle = backgroundColorUsed;
     context.fillRect(0,0, canvas.offsetWidth, canvas.clientHeight)
     context.fillStyle = currentColor;
-    // //console.log('Reset Button Clicked');
+    //console.log('Reset Button Clicked');
 })
 
-canvas?.addEventListener('mousedown', e => {
-    // //console.log('MouseDown Event Triggereted')
+canvas?.addEventListener('mousedown' || 'touchstart', e => {
+    //console.log('MouseDown Event Triggereted')
     mouseIsDown = true;
 })
 
-canvas?.addEventListener('mousemove', e => {
+canvas?.addEventListener('mousemove' || 'touchmove', e => {
     const xPos = e.clientX - canvas.offsetLeft;
     const yPos = e.clientY - canvas.offsetTop;
     if(mouseIsDown){
         drawCircle(xPos,yPos);
         // context.fillRect(xPos,yPos,5,5) 
-        // //console.log("MouseMove Event Listener triggerd" + " X: " +
+        //console.log("MouseMove Event Listener triggerd" + " X: " +
         // xPos + " Y: " + yPos)
     }   
 })
 
-canvas?.addEventListener('mouseup', e => {
-    // //console.log("MouseUp Event Listener triggerd")
+canvas?.addEventListener('mouseup'|| 'touchend', e => {
+    //console.log("MouseUp Event Listener triggerd")
     mouseIsDown = false;
 })
 
@@ -70,7 +70,7 @@ function drawCircle(xPos, yPos,){
 }
 
 function hexToRGB(hex, alpha) {
-    var r = parseInt(hex.slice(1, 3), 16),
+    let r = parseInt(hex.slice(1, 3), 16),
         g = parseInt(hex.slice(3, 5), 16),
         b = parseInt(hex.slice(5, 7), 16);
 
