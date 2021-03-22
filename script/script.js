@@ -7,9 +7,11 @@ const colorSelector = document.getElementById("colorSelector");
 const colorButton = document.getElementById('colorSwatch');
 const opacitySlider = document.getElementById('opacitySlider');
 const mainSection = document.getElementById('main');
+const selectClass = document.getElementById('thicknessSelect')
 
 canvas.width = mainSection.clientWidth;
-canvas.height = mainSection.clientHeight * 2;
+canvas.height = (mainSection.clientHeight * 4 > '100vw') ?  mainSection.clientHeight : mainSection.clientHeight * 4 ;
+
 
 document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
@@ -33,10 +35,7 @@ resetButton?.addEventListener('click', () => {
     //console.log('Reset Button Clicked');
 })
 
-canvas?.addEventListener('mousedown' || 'touchstart', e => {
-    //console.log('MouseDown Event Triggereted')
-    mouseIsDown = true;
-})
+canvas?.addEventListener('mousedown', () => mouseIsDown = true)
 
 canvas?.addEventListener('mousemove' || 'touchmove', e => {
     const xPos = e.clientX - canvas.offsetLeft;
@@ -44,26 +43,15 @@ canvas?.addEventListener('mousemove' || 'touchmove', e => {
     if(mouseIsDown) drawCircle(xPos,yPos);
 })
 
-canvas?.addEventListener('mouseup'|| 'touchend', e => {
-    //console.log("MouseUp Event Listener triggerd")
-    mouseIsDown = false;
-})
+canvas?.addEventListener('mouseup', () => mouseIsDown = false)
 
-opacitySlider?.addEventListener('click' || 'change', e => {
-    // let value = e?.target?.value/100;
-    document.getElementById('opacityLabel').innerText = opacitySlider.value +"%"
-    //console.log(value);  
-})
+opacitySlider?.addEventListener('click', () => document.getElementById('opacityLabel').innerText = opacitySlider.value +"%")
 
-colorButton?.addEventListener('click', e => {
-    let value = e?.target?.value;
-    //console.log(value);  
-})
-
-function drawCircle(xPos, yPos,){
+function drawCircle(xPos, yPos){
     context.fillStyle = hexToRGB(colorButton.value,opacitySlider.value/100);
+    const size = selectClass?.value || 1;
     context.beginPath();
-    context.arc(xPos,yPos, 5 , 0, 2 * Math.PI)
+    context.arc(xPos,yPos, size , 0, 2 * Math.PI)
     context.fill();
     context.closePath();
 }
@@ -79,3 +67,5 @@ function hexToRGB(hex, alpha) {
         return "rgb(" + r + ", " + g + ", " + b + ")";
     }
 }
+
+selectClass?.addEventListener('change', () => {console.log(selectClass.value)})
