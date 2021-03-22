@@ -1,4 +1,5 @@
 //Create Elements that can be manipulated
+//git push -u origin master
 const canvas = document.getElementById("GameScreen");
 const context = canvas.getContext("2d");
 const resetButton = document.getElementById("resetScreenButton");
@@ -9,8 +10,6 @@ const mainSection = document.getElementById('main');
 
 canvas.width = mainSection.clientWidth;
 canvas.height = mainSection.clientHeight * 2;
-console.log ("Widght: " + canvas.clientWidth + " Height: " + canvas.clientHeight * 2)
-
 
 document.getElementById('opacityLabel').innerText = opacitySlider.value+"%"
 colorButton.value = 'rgba(0,0,0,0)'; // Default Color to load up with.
